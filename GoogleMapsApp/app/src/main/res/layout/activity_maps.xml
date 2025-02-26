@@ -91,4 +91,39 @@
         android:padding="8dp"
         android:text="Back"
         android:textColor="#ffffff" />
+    <Button
+        android:id="@+id/SofiaLibrary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#359c5e"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:padding="8dp"
+        android:layout_margin="5dp"
+        android:text="Библиотека"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/SofiaUniversity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#359c5e"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@id/SofiaLibrary"
+        android:padding="8dp"
+        android:layout_margin="5dp"
+        android:text="СУ"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/IvanVazovTheatre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#359c5e"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@id/SofiaUniversity"
+        android:padding="8dp"
+        android:layout_margin="5dp"
+        android:text="Театър"
+        android:textColor="#ffffff" />
 </RelativeLayout>

@@ -13,6 +13,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -24,6 +25,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private final LatLng SofiaCenter = new LatLng(42.6977082, 23.3218675);
     private final LatLng TUsofia = new LatLng(42.6570607, 23.3551086);
+
+    // More destinations
+    private final LatLng SofiaLibrary = new LatLng(42.696373, 23.325703);
+    private final LatLng SofiaUniversity = new LatLng(42.693845, 23.334501);
+    private final LatLng IvanVazovTheatre = new LatLng(42.692849, 23.325345);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +61,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Button terrain = findViewById(R.id.terrainBUT);
         Button tus = findViewById(R.id.tusBUT);
         Button back = findViewById(R.id.BACK);
+
+        // More buttons
+        Button libraryButton = findViewById(R.id.SofiaLibrary);
+        Button universityButton = findViewById(R.id.SofiaUniversity);
+        Button theaterButton = findViewById(R.id.IvanVazovTheatre);
 
         plusZOOM.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +139,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View v) {
                 startActivity(new Intent(MapsActivity.this, MainActivity.class));
                 finish();
+            }
+        });
+
+        // More event listeners
+        libraryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMap.addMarker(new MarkerOptions()
+                        .position(SofiaLibrary)
+                        .title("Столична библиотека")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SofiaLibrary, 17));
+            }
+        });
+
+        universityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMap.addMarker(new MarkerOptions()
+                        .position(SofiaUniversity)
+                        .title("Софийски университет")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SofiaUniversity, 17));
+            }
+        });
+
+        theaterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMap.addMarker(new MarkerOptions()
+                        .position(IvanVazovTheatre)
+                        .title("Театър Иван Вазов")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(IvanVazovTheatre, 17));
             }
         });
     }

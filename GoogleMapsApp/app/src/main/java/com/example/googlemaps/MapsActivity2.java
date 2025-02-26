@@ -46,6 +46,8 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         Button nsaB = findViewById(R.id.nsa);
         Button line = findViewById(R.id.line);
         Button polygon = findViewById(R.id.polygon);
+        Button plusZoom = findViewById(R.id.zoomIN);
+        Button minusZoom = findViewById(R.id.zoomOUT);
 
         final LatLng TUsofia = new LatLng(42.6570607, 23.3551086);
         final LatLng unss = new LatLng(42.651266, 23.3466593);
@@ -126,5 +128,18 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
             }
         });
 
+        plusZoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMap.animateCamera(CameraUpdateFactory.zoomIn());
+            }
+        });
+
+        minusZoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMap.animateCamera(CameraUpdateFactory.zoomOut());
+            }
+        });
     }
 }
