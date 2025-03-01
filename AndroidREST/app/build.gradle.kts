@@ -31,12 +31,20 @@ android {
     }
 }
 
+repositories {
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+}
+
 dependencies {
+    implementation 'com.loopj.android:android-async-http:1.4.9'
 
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.support.annotations)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
